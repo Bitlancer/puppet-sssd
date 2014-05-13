@@ -29,7 +29,8 @@ class sssd::config(
     group   => $config_group,
     mode    => $config_mode,
     content => template('sssd/sssd.conf.erb'),
-    notify  => Service['sssd-service']
+    notify  => Service['sssd-service'],
+    require => Package['sssd-package']
   }
 
 }
